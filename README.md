@@ -7,8 +7,8 @@ The following guide explains how to download the underlying dataset, format it, 
 
 1. Download the raw data 
   1. **This step requires wget, available [here](http://gnuwin32.sourceforge.net/packages/wget.htm) for Windows**
-  2. The data we want to use is located on the [National Climate Data Center's FTP server](ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/)
-  3. To download some or all of the `.gz` files (CAUTION: over 13 GB total!)
+  2. The data we want to use is provided by the National Climate Data Center's Global Historical Climatological Network, and is available via FTP server [here](https://gis.ncdc.noaa.gov/geoportal/catalog/search/resource/details.page?id=gov.noaa.ncdc:C00861).
+  3. To download some or all of the yearly GHCND files (CAUTION: over 13 GB total!):
     1. Edit `download_by_year.bat` to specify the year range to download
     2. Edit `download_by_year.bat` to specify the save directory
   4. Extract the csv files within these `.gz` files using a utility like 7-zip
