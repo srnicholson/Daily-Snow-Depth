@@ -1,24 +1,24 @@
 # Daily-Snow-Depth
 This repo contains scripts to generate visualizations of daily U.S. snow depth.
 
-The following guide explains how to download the underlying dataset, format it, import it into QGIS, and ultimately combine the resulting map frames into a timelapse video. 
+**DISCLAIMER: I am relatively new to programming and had very little experience with UNIX shell scripting, Python, and especially QGIS and Avisynth before I started this project. Therefore, there are bound to be more than a few inefficiencies and quirks in my code. Feedback and improvements/enhancements are welcomed and encouraged! After all, that's what sharing code is all about, right?
 
-**DISCLAIMER: I am relatively new to programming, and had very little experience with shell scripting, Python, and especially QGIS and Avisynth before I started this project. Therefore, there are bound to be more than a few inefficiencies and quirks in my code. Feedback and improvements/enhancements are welcomed and encouraged! After all, that's what sharing code is all about, right?
+The following guide explains how to download the underlying dataset, format it, import it into QGIS, and ultimately combine the resulting map frames into a timelapse video.
 
 1. Download the raw data 
-  1. **This step requires wget, available here for Windows: http://gnuwin32.sourceforge.net/packages/wget.htm**
-  2. The data we want to use is located on the National Climate Data Center's FTP server: ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/ 
+  1. **This step requires wget, available [here](http://gnuwin32.sourceforge.net/packages/wget.htm) for Windows**
+  2. The data we want to use is located on the [National Climate Data Center's FTP server](ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/)
   3. To download some or all of the `.gz` files (CAUTION: over 13 GB total!)
     1. Edit `download_by_year.bat` to specify the year range to download
     2. Edit `download_by_year.bat` to specify the save directory
   4. Extract the csv files within these `.gz` files using a utility like 7-zip
-2. Formatting the raw data
+2. Format the raw data
   1. **This step requires a Unix shell. If you are on Windows, consider Cygwin, available here: https://www.cygwin.com/**
   2. These `.csv` files contain all weather data for every station in the Global Historical Climate Network (GHCN). We only need the snow depth data from U.S. stations.
   3. From the terminal (on Windows, open Cygwin), navigate to the location of the csv files.
   4.Run format_raw_data.sh from the Cygwin terminal. This will create a new directory containing daily csv files for snow depth data at continental U.S. stations. The files are named in the following way: `L48US_YYYYMMDD.csv`
 3. Create spatially-interpolated snow depth maps
-  1. **This step requires QGIS, available here: http://www.qgis.org/**
+  1. **This step requires [QGIS](http://www.qgis.org/)**
   2. Open QGIS
   3. Check the box next to "Render" in the QGIS window. This speeds up the rendering because it prevents QGIS from displaying the intermediate and final canvases during processing.
   4. Click the Python logo to open the Python Console within QGIS.
@@ -34,3 +34,8 @@ The following guide explains how to download the underlying dataset, format it, 
     * You may need to go in and manually delete the temp files if QGIS fails to remove them. On Windows, the default temp directory is something like C:\Users\\[your-name-here]\AppData\Local\Temp\processing
     * If you are using an SSD for OS and installed programs and a larger HDD for bulk storage, consider changing the environment variable of the QGIS temp directory to a location on the HDD, as explained here: http://gis.stackexchange.com/a/156156
   10. Run `SNWD_full.py`, which will save the individual map files in the `YYYYMMDD.png` format.
+4. Create timelapse video from daily map images
+  1. **This step requires the following:
+    * Avisynth, available [here](http://sourceforge.net/projects/avisynth2/)
+    * MeGUI, available here: 
+    * An up-to-date version of ffmpeg, available [here](https://www.ffmpeg.org/download.html) (or [here](http://ffmpeg.zeranoe.com/builds/) if you wish to use a build that has already been compiled)
