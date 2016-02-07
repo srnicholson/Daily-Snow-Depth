@@ -13,7 +13,7 @@ The following guide explains how to download the underlying dataset, format it, 
     2. Edit `download_by_year.bat` to specify the save directory
   4. Extract the csv files within these `.gz` files using a utility like 7-zip
 2. Format the raw data
-  1. **This step requires a Unix shell. If you are on Windows, consider Cygwin, available here: https://www.cygwin.com/**
+  1. **This step requires a Unix shell. If you are on Windows, consider [Cygwin](https://www.cygwin.com/):**
   2. These `.csv` files contain all weather data for every station in the Global Historical Climate Network (GHCN). We only need the snow depth data from U.S. stations.
   3. From the terminal (on Windows, open Cygwin), navigate to the location of the csv files.
   4.Run format_raw_data.sh from the Cygwin terminal. This will create a new directory containing daily csv files for snow depth data at continental U.S. stations. The files are named in the following way: `L48US_YYYYMMDD.csv`
