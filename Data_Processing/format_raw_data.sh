@@ -36,7 +36,7 @@ do
 	rm temp_SNWD_joined_L48_sorted_$YEAR.csv
 done
 echo --------------------------------
-for file in daily/*.csv
+for file in csvs/*.csv
 do
 	#Add a header (column names) to all daily csv files. Note: "Ignore" fields are not presently used in this visualization.
 	echo Adding column name header to $file
