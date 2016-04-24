@@ -1,0 +1,3 @@
+Cartographic Boundary Shapefiles - States
+"The cartographic boundary files are simplified representations of selected geographic areas from the Census Bureau’s MAF/TIGER geographic database. These boundary files are specifically designed for small scale thematic mapping. Generalized boundary files are clipped to a simplified version of the U.S. outline. As a result, some off-shore areas may be excluded from the generalized files."
+https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html

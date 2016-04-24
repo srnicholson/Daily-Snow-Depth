@@ -1,0 +1,9 @@
+Global Image Archive
+Compiled by: Paul Illsley
+Data source: NASA's Blue Marble project (MODIS Terra and Aqua satellites)
+Projection: Equirrectangular Cylindrical (Plate Carrée)
+Datum: WGS84
+Coordinate System: Geographic
+Resolution: 0.01 degrees/pixel (eight 9000 X 9000 pixel tiles) 
+Format: RGB 24 bit .jpg raster file (0 compression) with .jpgw world file
+http://paulillsley.com/gia/index.html
