@@ -25,12 +25,13 @@ if not NA_sat_2:
 #Begin Looping through csv files
 
 #Path to CSV files
-path_to_csvs=os.path.join(repo_path,'Data_Processing/csvs/')
+path_to_csvs=os.path.join(repo_path,'Data_Processing/csv/')
 list_of_csvs=glob.glob(path_to_csvs + '*.csv')
 t0=time.time()
 count = 0
 for file in list_of_csvs:
     date=file[-12:-4]
+    print date
     count += 1
     print '------------------Creating snow depth visualization for ' + date + '. Day ' + str(count) + ' of ' + str(len(list_of_csvs)) + '.------------------'
     #load Lower 48 States Shapefile
