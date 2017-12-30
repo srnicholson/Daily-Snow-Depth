@@ -1,5 +1,5 @@
 # Daily-Snow-Depth
-This repo contains scripts to generate visualizations of daily U.S. snow depth.
+This repo contains scripts to generate visualizations of daily U.S. snow depth. I used these scripts to generate timelapse visualizations of the national snow depth map from 1950 through 2015. A [slow version](https://www.youtube.com/watch?v=YwehzWN4c_g) and [fast version](https://www.youtube.com/watch?v=7tMJJ5_6fGQ) are available.
 
 **DISCLAIMER: I am relatively new to programming and had very little experience with UNIX shell scripting, Python, and especially QGIS and Avisynth before I started this project. Therefore, there are bound to be more than a few inefficiencies and quirks in my code. Feedback and improvements/enhancements are welcomed and encouraged! After all, that's what sharing code is all about, right?
 
