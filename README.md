@@ -19,10 +19,11 @@ II. Format the raw data
 
 III. Create spatially-interpolated snow depth maps
   1. **This step requires [QGIS](http://www.qgis.org/), and specifically, QGIS 2.10 Pisa.**
-	1. The script is not working with more recent QGIS versions (such as 2.14 Essen) due to a backwards compatibility issue in some of the processing algorithms.
-	2. Links to the older QGIS 2.10 Windows installation binaries
-		1. [QGIS-OSGeo4W-2.10.1-1-Setup-x86.exe](https://qgis.org/downloads/QGIS-OSGeo4W-2.10.1-1-Setup-x86.exe) (32-bit version)
-		2. [QGIS-OSGeo4W-2.10.1-1-Setup-x86_64.exe](https://qgis.org/downloads/QGIS-OSGeo4W-2.10.1-1-Setup-x86_64.exe) (64-bit version)
+		1. The script is not working with more recent QGIS versions (such as 2.14 Essen) due to a backwards compatibility issue in some of the processing algorithms.
+
+		2. Links to the older QGIS 2.10 Windows installation binaries
+			1. [QGIS-OSGeo4W-2.10.1-1-Setup-x86.exe](https://qgis.org/downloads/QGIS-OSGeo4W-2.10.1-1-Setup-x86.exe) (32-bit version)
+			2. [QGIS-OSGeo4W-2.10.1-1-Setup-x86_64.exe](https://qgis.org/downloads/QGIS-OSGeo4W-2.10.1-1-Setup-x86_64.exe) (64-bit version)
   2. Open QGIS 2.10
   3. Uncheck the box next to "Render" in the QGIS window. This will speeds up the script because it prevents QGIS from displaying the intermediate canvases during processing.
   4. Click the Python logo to open the Python Console within QGIS.
