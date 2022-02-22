@@ -55,7 +55,7 @@ IV. Create timelapse video from daily map images
 
 	    Run `crop_headers.sh` in the command line.
 
-  5. Generate timelapse for all header images (after cd'ing to wherever the individual headers files are):
+  5. Generate timelapse for all header images (after cd'ing to wherever the individual header files are):
 
 	   `ffmpeg -framerate 2 -i %05d.png -c:v libx264 -preset veryslow -r 30 {headers_out.mkv}`
 
