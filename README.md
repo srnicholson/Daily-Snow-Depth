@@ -43,4 +43,25 @@ IV. Create timelapse video from daily map images
 		2. MeGUI, available [here](https://sourceforge.net/projects/megui/)
 		3. An up-to-date version of ffmpeg, available [here](https://www.ffmpeg.org/download.html) (or [here](http://ffmpeg.zeranoe.com/builds/) if you wish to use a build that has already been compiled)
 
-  2. Run `script_name_TBD` script to merge daily map images into a video file
+  2. Crop maps to remove headers (will be added in separately in later steps.)
+
+	    Run `crop_maps.sh` in the command line.
+
+  3. Generate timelapse for all map images (after cd'ing to wherever the individual map files are) using:
+
+	    `ffmpeg -framerate 2 -i %05d.png -c:v libx264 -preset veryslow -r 2 -pix_fmt yuv420p {maps_out.mkv}`
+
+  4. Generate date headers for all map images. These are handled separately by isolating them off the previously rendered map frames so that the header dates appear plainly and sequentially instead of blending one into another (which is hard to read) in the final timelapse.
+
+	    Run `crop_headers.sh` in the command line.
+
+  5. Generate timelapse for all header images (after cd'ing to wherever the individual headers files are):
+
+	   `ffmpeg -framerate 2 -i %05d.png -c:v libx264 -preset veryslow -r 30 {headers_out.mkv}`
+
+  6. Stack the non-blended header and blended map video files:
+
+	   `ffmpeg -i {headers_out.mkv} -i {maps_out.mkv} -filter_complex vstack {stacked.mkv}`
+
+  7. Upload to desired video hosting platform (e.g., Youtube or Vimeo).
+
