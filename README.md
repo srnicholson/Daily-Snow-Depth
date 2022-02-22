@@ -3,19 +3,21 @@ This repo contains scripts to generate *(rough!)* visualizations of daily U.S. s
 
 The following guide explains how to download the underlying dataset, format it, import it into QGIS, and ultimately combine the resulting map frames into a timelapse video. I completed this project on a Windows machine, so this guide is highly Windows-specific.
 
-1. Download the raw data 
+I. Download the raw data 
   1. **This step requires wget, available [here](http://gnuwin32.sourceforge.net/packages/wget.htm) for Windows**
   2. The data we want to use is provided by the National Climate Data Center's Global Historical Climatological Network, and is available via FTP server [here](https://gis.ncdc.noaa.gov/geoportal/catalog/search/resource/details.page?id=gov.noaa.ncdc:C00861).
   3. To download some or all of the yearly GHCND files (CAUTION: over 13 GB total!):
     1. Edit `download_by_year.bat` to specify the year range to download
     2. Edit `download_by_year.bat` to specify the save directory
   4. Extract the csv files within these `.gz` files using a utility like 7-zip
-2. Format the raw data
+
+II. Format the raw data
   1. **This step requires a Unix shell. If you are on Windows, consider [Cygwin](https://www.cygwin.com/):**
   2. These `.csv` files contain all weather data for every station in the Global Historical Climate Network (GHCN). We only need the snow depth data from U.S. stations.
   3. From the terminal (on Windows, open Cygwin), navigate to the location of the csv files.
   4. Run `format_raw_data.sh` from the Cygwin terminal. This will create a new directory containing daily csv files for snow depth data at continental U.S. stations. The files are named in the following way: `YYYYMMDD.csv`
-3. Create spatially-interpolated snow depth maps
+
+III. Create spatially-interpolated snow depth maps
   1. **This step requires [QGIS](http://www.qgis.org/), and specifically, QGIS 2.10 Pisa.**
 	1. The script is not working with more recent QGIS versions (such as 2.14 Essen) due to a backwards compatibility issue in some of the processing algorithms.
 	2. Links to the older QGIS 2.10 Windows installation binaries
@@ -34,8 +36,11 @@ The following guide explains how to download the underlying dataset, format it, 
     * If you are using an SSD for your OS and installed programs and a larger HDD for bulk storage, consider changing the environment variable of the QGIS temp directory to a location on your HDD, as explained here: http://gis.stackexchange.com/a/156156
     * The warning message about incompatible CRS layers can be ignored.
   9. Run `QGIS_Snow_Depth_Renderer.py`, which will save the individual map files to the `[Your GitHub path]/Daily-Snow-Depth/QGIS_Python/Rendered_Frames/` directory in `YYYYMMDD.png` format.
-4. Create timelapse video from daily map images
+
+IV. Create timelapse video from daily map images
   1. **This step requires the following:
-    * Avisynth, available [here](http://sourceforge.net/projects/avisynth2/)
-    * MeGUI, available here: 
-    * An up-to-date version of ffmpeg, available [here](https://www.ffmpeg.org/download.html) (or [here](http://ffmpeg.zeranoe.com/builds/) if you wish to use a build that has already been compiled)
+		1. Avisynth, available [here](http://sourceforge.net/projects/avisynth2/)
+		2. MeGUI, available [here](https://sourceforge.net/projects/megui/)
+		3. An up-to-date version of ffmpeg, available [here](https://www.ffmpeg.org/download.html) (or [here](http://ffmpeg.zeranoe.com/builds/) if you wish to use a build that has already been compiled)
+
+  2. Run `script_name_TBD` script to merge daily map images into a video file
